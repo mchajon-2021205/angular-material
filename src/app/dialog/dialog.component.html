@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{data.titulo}}</h1>
+<mat-dialog-content>
+    <form>
+        <mat-form-field>
+            <mat-label>Ingresa tu nombre</mat-label>
+            <input matInput placeholder="Nombre" [formControl]="data.nombre">
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" [disabled]="data.nombre.invalid"
+        [mat-dialog-close]="data.nombre">Guardar</button>
+    <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+</mat-dialog-actions>

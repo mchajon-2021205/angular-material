@@ -1,0 +1,20 @@
+
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+
+    .fechas{
+        width: 250px;
+    }
+
+    .seccion-1 {
+        display: flex;
+        margin-bottom: 1rem;
+    }
+}
+
+.mat-calendar-table {
+    display: none !important;
+  }

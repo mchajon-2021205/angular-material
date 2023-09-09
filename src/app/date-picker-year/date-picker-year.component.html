@@ -1,0 +1,24 @@
+
+<h2>Seleccion de Año y Mes</h2>
+
+
+<section class="seccion-1">
+    <div>
+        <mat-form-field>
+            <mat-label>Month and Year</mat-label>
+            <input matInput [matDatepicker]="dp" [formControl]="date">
+            <mat-hint>MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp startView="multi-year" (monthSelected)="setMonthAndYear($event, dp)"
+                panelClass="example-month-picker">
+            </mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div style="margin-left: 1rem; margin-top: -0.3rem;">
+        <h3>Fecha seleccionanda</h3>
+        <p>{{date.value}}</p>
+    </div>
+
+</section>
+

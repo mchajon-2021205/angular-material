@@ -1,0 +1,22 @@
+.nav{
+    width: 50%;
+    margin: auto;
+    font-size: 2rem;
+    font-weight: bold;
+
+    ul{
+        display: flex;
+        justify-content: center;
+        list-style: none;
+
+        
+        li{
+            margin-left: 1rem;
+            cursor: pointer;
+            
+            &:hover{
+                color: rgb(40, 40, 40, 0.5);
+            }
+        }
+    }
+}

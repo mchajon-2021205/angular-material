@@ -1,0 +1,58 @@
+<div style="padding: 2rem;">
+    <mat-horizontal-stepper linear="">
+
+        <!-- STEP 1 -->
+        <mat-step label="Step 1" [completed]="fecha.valid">
+
+            <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="fecha">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix (keyup)="validarFecha(picker)"
+                    [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <button mat-raised-button color="warn" [disabled]="acertado" matStepperNext style="margin-left: 1rem;">Siguiente</button>
+            <div *ngIf="acertado" style="font-weight: bold; color: white;">
+                *La fecha deve ser menor a la actual
+            </div>
+
+        </mat-step>
+
+        <!-- STEP 2 -->
+        <mat-step label="Step 2" [completed]="nombre.valid" >
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput [formControl]="nombre">
+            </mat-form-field>
+
+            <button  mat-raised-button color="warn" matStepperNext style="margin-left: 1rem;">Siguiente</button>
+
+            <div [hidden]="nombre.pristine" style="font-weight: bold; color: white;">
+                <span *ngIf="nombre.errors?.['required']">
+                    *El nombre es requerido
+                </span>
+
+                <span *ngIf="nombre.errors?.['pattern']">
+                    *Solo deben de incluir letras
+                </span>
+            </div>
+        </mat-step>
+
+
+        <!-- STEP 3 -->
+        <mat-step label="Step 3">
+
+            <mat-slide-toggle (change)="mostrarDPI($event)">DPI</mat-slide-toggle>
+            <div *ngIf="DPI" style="margin-top: 1rem;">
+                <mat-form-field class="example-full-width">
+                    <mat-label>DPI</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+
+        </mat-step>
+    </mat-horizontal-stepper>
+
+</div>

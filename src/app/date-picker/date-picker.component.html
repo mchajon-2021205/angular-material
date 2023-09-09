@@ -1,0 +1,50 @@
+<div class="contenedor">
+
+    <h2>Rango de fechas</h2>
+    <section class="seccion-1">
+        <div>
+            <mat-form-field class="fechas">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="rango" disabled>
+                    <input matStartDate placeholder="Fecha de inicio" [formControl]="startControl">
+                    <input matEndDate placeholder="Fecha de fin" [formControl]="endControl">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="rango" [disabled]="false"></mat-datepicker-toggle>
+                <mat-date-range-picker color="warn" #rango [disabled]="false"></mat-date-range-picker>
+            </mat-form-field>
+        </div>
+
+        <div style="margin-left: 1rem; margin-top: -0.3rem;">
+            <h3>Fechas seleccionanda</h3>
+            <div style="display: flex;">
+                <p>{{startControl.value | date:'dd/MM/yyyy'}}</p>
+                <p style="margin-left: 0.5rem">{{endControl.value | date:'dd/MM/yyyy'}}</p>
+            </div>
+        </div>
+    </section>
+
+
+    <h2>Valor minimo y maximo</h2>
+
+    <section class="seccion-1">
+        <div>
+            <mat-form-field class="fechas">
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="minMax" 
+                    placeholder="Selecciona una fecha" [(ngModel)]="fechaMaxima" (click)="minMax.open()">
+                <mat-datepicker-toggle matSuffix [for]="minMax"></mat-datepicker-toggle>
+                <mat-datepicker color="accent" #minMax></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div style="margin-left: 1rem; margin-top: -0.3rem;">
+            <h3>Fecha seleccionanda</h3>
+            <p>{{fechaMaxima | date}}</p>
+        </div>
+
+    </section>
+
+    <app-date-picker-year></app-date-picker-year>
+
+    <app-dates-pikers></app-dates-pikers>
+</div>
